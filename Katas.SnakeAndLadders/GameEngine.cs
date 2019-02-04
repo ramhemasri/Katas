@@ -34,5 +34,11 @@ namespace Katas.SnakeAndLadders
         {
             return squares[player];
         }
+
+        public void MovePlayer(Player player, int spaces)
+        {
+            squares[player] = CurrentSquareForPlayer(player) + spaces;
+
+        }
     }
 }

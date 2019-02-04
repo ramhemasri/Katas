@@ -32,6 +32,33 @@ namespace Katas.SnakeAndLadders.Tests
 
         }
 
+        [Scenario]
+        public void AfterGameStart_WhenTokenMove3Spaces_ThenTokenShouldBeOnSquare4(GameEngine gameEngine, Player player)
+        {
+            "Given the token is on square 1"
+               .x(() =>
+               {
+                   player = new Player(1, "Player 1");
+                   int totalSquares = 100;
+                   gameEngine = new GameEngine(totalSquares);
+                   gameEngine.AddPlayer(player);
+                   gameEngine.Start();
+               });
 
+            "When the token is moved 3 spaces"
+                .x(() =>
+                {
+                    var spaces = 3;
+                    gameEngine.MovePlayer(player, spaces);
+                });
+
+            "Then the token is on square 4"
+                .x(() =>
+                {
+                    gameEngine.CurrentSquareForPlayer(player).Should().Be(4);
+                });
+
+
+        }
     }
 }
