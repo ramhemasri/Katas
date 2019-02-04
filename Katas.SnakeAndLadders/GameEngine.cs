@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Katas.SnakeAndLadders
 {
@@ -14,7 +12,7 @@ namespace Katas.SnakeAndLadders
         public GameEngine(int totalSquares)
         {
             this.totalSquares = totalSquares;
-            this.players = new List<Player>();
+            players = new List<Player>();
             squares = new Dictionary<Player, int>();
         }
 
@@ -24,8 +22,8 @@ namespace Katas.SnakeAndLadders
         }
 
         public void Start()
-        {            
-            foreach (var player in players)
+        {
+            foreach (Player player in players)
             {
                 squares.Add(player, 1);
             }
@@ -38,10 +36,16 @@ namespace Katas.SnakeAndLadders
 
         public void MovePlayer(Player player, int spaces)
         {
+            if (CurrentSquareForPlayer(player) + spaces > totalSquares)
+            {
+                return;
+            }
+
             squares[player] = CurrentSquareForPlayer(player) + spaces;
             if (squares[player] == totalSquares)
+            {
                 Winner = player;
-
+            }
         }
     }
 }
