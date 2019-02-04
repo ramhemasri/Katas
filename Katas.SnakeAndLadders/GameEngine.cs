@@ -6,26 +6,33 @@ namespace Katas.SnakeAndLadders
 {
     public class GameEngine
     {
-        private int totalSquares;
+        private readonly int totalSquares;
+        private readonly IList<Player> players;
+        private readonly IDictionary<Player, int> squares;
 
         public GameEngine(int totalSquares)
         {
             this.totalSquares = totalSquares;
+            this.players = new List<Player>();
+            squares = new Dictionary<Player, int>();
         }
 
         public void AddPlayer(Player player)
         {
-            throw new NotImplementedException();
+            players.Add(player);
         }
 
         public void Start()
-        {
-            throw new NotImplementedException();
+        {            
+            foreach (var player in players)
+            {
+                squares.Add(player, 1);
+            }
         }
 
         public int CurrentSquareForPlayer(Player player)
         {
-            throw new NotImplementedException();
+            return squares[player];
         }
     }
 }
