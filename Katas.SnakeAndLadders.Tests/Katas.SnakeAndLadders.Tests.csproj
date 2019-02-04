@@ -17,4 +17,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Katas.SnakeAndLadders\Katas.SnakeAndLadders.csproj" />
+  </ItemGroup>
+
 </Project>
