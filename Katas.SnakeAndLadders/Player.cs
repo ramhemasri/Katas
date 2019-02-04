@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Katas.SnakeAndLadders
+﻿namespace Katas.SnakeAndLadders
 {
     public class Player
     {
-        private int v1;
-        private string v2;
+        private readonly int id;
+        private readonly string name;
+        private readonly IDice dice;
 
-        public Player(int v1, string v2)
+        public Player(int id, string name, IDice dice)
         {
-            this.v1 = v1;
-            this.v2 = v2;
+            this.id = id;
+            this.name = name;
+            this.dice = dice;
+        }
+
+        public int RollDice()
+        {
+            return dice.Roll();
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Katas.SnakeAndLadders.Tests
     public class TokenCanMoveAcrosstheBoard
     {
         [Scenario]
-        public void TokenShouldBeOnSquare1(GameEngine gameEngine, Player player)
+        public void TokenShouldBeOnSquare1(GameEngine gameEngine, Player player, IDice dice)
         {
             "Given the game is started"
                 .x(() =>
                 {
-                    player = new Player(1, "Player 1");
+                    player = new Player(1, "Player 1", dice);
                     int totalSquares = 100;
                     gameEngine = new GameEngine(totalSquares);
                     gameEngine.AddPlayer(player);
@@ -33,12 +33,12 @@ namespace Katas.SnakeAndLadders.Tests
         }
 
         [Scenario]
-        public void AfterGameStart_WhenTokenMove3Spaces_ThenTokenShouldBeOnSquare4(GameEngine gameEngine, Player player)
+        public void AfterGameStart_WhenTokenMove3Spaces_ThenTokenShouldBeOnSquare4(GameEngine gameEngine, Player player, IDice dice)
         {
             "Given the token is on square 1"
                .x(() =>
                {
-                   player = new Player(1, "Player 1");
+                   player = new Player(1, "Player 1",dice);
                    int totalSquares = 100;
                    gameEngine = new GameEngine(totalSquares);
                    gameEngine.AddPlayer(player);
@@ -60,12 +60,12 @@ namespace Katas.SnakeAndLadders.Tests
         }
 
         [Scenario]
-        public void AfterGameStart_WhenTokenMoves3And4Spaces_ThenTokenShouldBeOnSquare8(GameEngine gameEngine, Player player)
+        public void AfterGameStart_WhenTokenMoves3And4Spaces_ThenTokenShouldBeOnSquare8(GameEngine gameEngine, Player player, IDice dice)
         {
             "Given the token is on square 1"
                    .x(() =>
                    {
-                       player = new Player(1, "Player 1");
+                       player = new Player(1, "Player 1",dice);
                        int totalSquares = 100;
                        gameEngine = new GameEngine(totalSquares);
                        gameEngine.AddPlayer(player);
